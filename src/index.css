@@ -1,0 +1,1350 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ============================================
+   NAHLACAR CLONE DESIGN SYSTEM - LIGHT THEME
+   Brand: Marouazi Rent Cars (Safi, Morocco)
+   ============================================ */
+
+:root {
+  /* Colors from www.nahlacar.ma */
+  --teal-primary: #23393d;    /* nahlacar primary header color */
+  --teal-secondary: #2a4045;  /* nahlacar secondary hover/base */
+  --gold-accent: #f0c540;     /* nahlacar gold accent */
+  --gold-accent-hover: #d9ba85;
+  --orange-accent: #cc6119;   /* nahlacar secondary accent */
+  --bg-light: #F0F3F7;        /* nahlacar page background gray */
+  --card-bg: #ffffff;
+  
+  /* Text Colors */
+  --charcoal: #111827;        /* Main dark text */
+  --white: #ffffff;
+  --white-70: #4B5563;        /* Secondary dark text */
+  --white-50: #9CA3AF;        /* Muted text */
+  --white-20: #E5E7EB;        /* Borders */
+  --white-10: #F3F4F6;        /* Subtle backgrounds */
+
+  /* Fonts */
+  --font-display: 'Montserrat', system-ui, sans-serif;
+  --font-sans: 'Open Sans', system-ui, sans-serif;
+  --font-accent: 'Montserrat', system-ui, sans-serif;
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-pad: 20px;
+  --navbar-h: 120px; /* Custom double header height */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Restore Default Cursor globally (nahlacar.ma benchmark standard) */
+* {
+  cursor: auto !important;
+}
+a, button, select, input[type="submit"], .clickable {
+  cursor: pointer !important;
+}
+
+img, video { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; transition: color var(--transition-fast); }
+a:hover { color: var(--gold-accent); }
+button { border: none; background: none; font-family: inherit; outline: none; }
+ul, ol { list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+/* ============================================
+   TOP BAR (www.nahlacar.ma style)
+   ============================================ */
+.top-bar {
+  background-color: #1a1a1a;
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.top-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.top-bar-info {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.top-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.top-bar-item svg {
+  color: var(--gold-accent);
+}
+
+.top-bar-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.top-bar-socials a:hover {
+  color: var(--gold-accent);
+}
+
+/* ============================================
+   DOUBLE NAV HEADER (www.nahlacar.ma style)
+   ============================================ */
+.navbar {
+  background-color: var(--teal-primary);
+  border-bottom: 2px solid var(--gold-accent);
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Top Area of Navbar */
+.navbar-top {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar-top-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: var(--gold-accent);
+  color: var(--teal-primary);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo span {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--white);
+}
+
+.logo em {
+  font-style: italic;
+  color: var(--gold-accent);
+}
+
+/* Call Button in Header */
+.navbar-call-btn {
+  background-color: var(--gold-accent);
+  color: var(--teal-primary) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--gold-accent);
+  transition: all var(--transition-fast);
+}
+
+.navbar-call-btn:hover {
+  background-color: transparent;
+  color: var(--gold-accent) !important;
+}
+
+/* Bottom Area of Navbar (Links Menu) */
+.navbar-bottom {
+  padding: 10px 0;
+}
+
+.navbar-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.9);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 0;
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--gold-accent);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold-accent);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  color: var(--white);
+}
+
+/* Mobile Nav Menu */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background-color: var(--teal-primary);
+  z-index: 1100;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-nav .nav-link {
+  font-size: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 10px 0;
+}
+
+/* ============================================
+   HERO BANNER & SEARCH FORM OVERLAY
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 500px;
+  background-color: var(--teal-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0 140px 0;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-accent);
+  color: var(--gold-accent);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-accent);
+}
+
+.hero-subtitle {
+  color: rgba(255,255,255,0.9);
+  font-size: 16px;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+.hero-ctas {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  display: none; /* nahlacar doesn't have floating stats in hero */
+}
+
+.scroll-hint {
+  display: none;
+}
+
+/* ============================================
+   BOOKING WIDGET (nahlacar.ma Style)
+   ============================================ */
+.booking-widget {
+  background-color: var(--teal-primary);
+  border-top: 3px solid var(--gold-accent);
+  padding: 25px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  align-items: end;
+  margin-top: -80px;
+  position: relative;
+  z-index: 10;
+  color: var(--white);
+}
+
+.widget-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.widget-field label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold-accent);
+  letter-spacing: 0.5px;
+}
+
+.widget-field input,
+.widget-field select {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #cccccc;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.widget-field input:focus,
+.widget-field select:focus {
+  outline: none;
+  border-color: var(--gold-accent);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  font-size: 13px;
+  text-align: center;
+}
+
+.btn-gold {
+  background-color: var(--gold-accent);
+  color: var(--teal-primary) !important;
+  border: 1px solid var(--gold-accent);
+}
+
+.btn-gold:hover {
+  background-color: transparent;
+  color: var(--gold-accent) !important;
+}
+
+.btn-outline {
+  border: 1px solid var(--teal-primary);
+  color: var(--teal-primary) !important;
+}
+
+.btn-outline:hover {
+  background-color: var(--teal-primary);
+  color: var(--white) !important;
+}
+
+.btn-lg {
+  padding: 15px 35px;
+  font-size: 14px;
+}
+
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 12px;
+}
+
+.btn-whatsapp {
+  background-color: #25D366 !important;
+  color: var(--white) !important;
+  border: 1px solid #25D366 !important;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebd56 !important;
+  border-color: #1ebd56 !important;
+  color: var(--white) !important;
+}
+
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
+.section {
+  padding: 70px 0;
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-header.center {
+  text-align: center;
+}
+
+.section-label {
+  font-family: var(--font-display);
+  color: var(--teal-primary);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--teal-primary);
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold-accent);
+}
+
+.section-desc {
+  color: var(--white-70);
+  max-width: 700px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ============================================
+   VEHICLE CARDS (nahlacar.ma Style)
+   ============================================ */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.vehicle-card {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.vehicle-img-wrap {
+  position: relative;
+  aspect-ratio: 16/10;
+  background-color: #f9f9f9;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vehicle-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vehicle-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--teal-primary);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.vehicle-body {
+  padding: 20px;
+  border-top: 1px solid #eeeeee;
+}
+
+.vehicle-category {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--orange-accent);
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+.vehicle-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--teal-primary);
+  margin-bottom: 15px;
+}
+
+.vehicle-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+  color: var(--white-70);
+  text-align: center;
+  gap: 4px;
+}
+
+.spec-item svg {
+  color: var(--teal-primary);
+}
+
+.vehicle-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.vehicle-price {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-amount {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--teal-primary);
+}
+
+.price-period {
+  font-size: 11px;
+  color: var(--white-50);
+}
+
+/* ============================================
+   WHY CHOOSE US & FEATURE CARDS
+   ============================================ */
+.feature-card {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-sm);
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  background-color: rgba(35, 57, 61, 0.08);
+  color: var(--teal-primary);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--teal-primary);
+  margin-bottom: 10px;
+}
+
+.feature-desc {
+  font-size: 13px;
+  color: var(--white-70);
+}
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+.testimonial-card {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-sm);
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.testimonial-quote {
+  display: none;
+}
+
+.star-rating {
+  margin-bottom: 15px;
+}
+
+.testimonial-text {
+  font-size: 14px;
+  color: var(--white-70);
+  font-style: italic;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  background-color: var(--teal-primary);
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.author-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal-primary);
+}
+
+.author-role {
+  font-size: 11px;
+  color: var(--white-50);
+}
+
+/* ============================================
+   STATS COUNTER (Light)
+   ============================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  background-color: var(--card-bg);
+  border: 1px solid #eeeeee;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.stat-item {
+  padding: 40px var(--container-pad);
+  text-align: center;
+  border-right: 1px solid #eeeeee;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--teal-primary);
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white-50);
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--teal-primary);
+  letter-spacing: 0.5px;
+}
+
+.form-input, .form-select, .form-textarea {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  color: #333333;
+  font-size: 14px;
+  width: 100%;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--gold-accent);
+}
+
+/* ============================================
+   BOOKING STEPS PROGRESS
+   ============================================ */
+.booking-steps {
+  display: flex;
+  border: 1px solid #eeeeee;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.step-item {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-right: 1px solid #eeeeee;
+}
+
+.step-item:last-child { border-right: none; }
+.step-item.active { background-color: var(--white-10); }
+
+.step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.step-item.active .step-num, .step-item.completed .step-num {
+  background-color: var(--gold-accent);
+  color: var(--teal-primary);
+}
+
+.step-label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+.step-item.active .step-label {
+  color: var(--teal-primary);
+}
+
+/* ============================================
+   FOOTER (www.nahlacar.ma style)
+   ============================================ */
+.footer {
+  background-color: #1a1a1a;
+  color: #aaaaaa;
+  padding: 60px 0 20px 0;
+  border-top: 3px solid var(--gold-accent);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-brand-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #999999;
+}
+
+.footer-col-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--gold-accent);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  font-size: 13px;
+  color: #999999;
+}
+
+.footer-link:hover {
+  color: var(--gold-accent);
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+
+.social-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999999;
+  font-size: 13px;
+}
+
+.social-link:hover {
+  background-color: var(--gold-accent);
+  color: var(--teal-primary);
+  border-color: var(--gold-accent);
+}
+
+.footer-bottom {
+  padding: 20px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #777777;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ============================================
+   FLOATING WHATSAPP
+   ============================================ */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  background-color: #25D366;
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+  color: #FFFFFF;
+}
+
+/* ============================================
+   ACCORDION (FAQ)
+   ============================================ */
+.accordion-item {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-sm);
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.accordion-trigger {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--teal-primary);
+  text-align: left;
+}
+
+.accordion-icon {
+  color: var(--gold-accent);
+  transition: transform var(--transition-base);
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.open {
+  max-height: 400px;
+}
+
+.accordion-body {
+  padding: 0 20px 20px 20px;
+  font-size: 14px;
+  color: var(--white-70);
+  border-top: 1px solid #eeeeee;
+  padding-top: 15px;
+}
+
+/* Service Card (Light Theme) */
+.service-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 50px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+.service-card:last-child { border-bottom: none; }
+.service-card.reverse { direction: rtl; }
+.service-card.reverse > * { direction: ltr; }
+.service-img {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  background-color: #f0f3f7;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+}
+.service-img img { width: 100%; object-fit: contain; }
+.service-num {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 900;
+  color: rgba(35,57,61,0.1);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.service-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--teal-primary);
+  margin-bottom: 15px;
+}
+.service-desc { font-size: 14px; color: var(--white-70); line-height: 1.7; margin-bottom: 25px; }
+
+/* ============================================
+   PAGE HERO BANNER (Inner pages)
+   ============================================ */
+.page-hero {
+  background-color: var(--teal-primary);
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(240,197,64,0.08) 0%, transparent 60%);
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  margin: 10px 0 15px 0;
+}
+
+.page-title em {
+  font-style: italic;
+  color: var(--gold-accent);
+}
+
+.page-desc {
+  color: rgba(255,255,255,0.75);
+  font-size: 15px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Override section-label inside page-hero to white */
+.page-hero .section-label {
+  color: var(--gold-accent);
+}
+
+/* ============================================
+   LAYOUT UTILITIES
+   ============================================ */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex { display: flex; }
+.gap-4 { gap: 1rem; }
+.gap-2 { gap: 0.5rem; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.flex-wrap { flex-wrap: wrap; }
+.text-center { text-align: center; }
+.text-sm { font-size: 13px; }
+.text-xs { font-size: 11px; }
+.w-full { width: 100%; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.pt-0 { padding-top: 0 !important; }
+.py-20 { padding: 5rem 0; }
+
+/* Contact page classes */
+.contact-channel {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 20px;
+  background-color: var(--card-bg);
+  border: 1px solid #eeeeee;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+.contact-channel:hover {
+  border-color: var(--gold-accent);
+  transform: translateX(4px);
+}
+.channel-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(35,57,61,0.08);
+  color: var(--teal-primary);
+  flex-shrink: 0;
+}
+.channel-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white-50);
+  letter-spacing: 0.5px;
+  margin-bottom: 3px;
+}
+.channel-value {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--teal-primary);
+}
+
+/* About page checklist */
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+.checklist-item svg {
+  color: var(--teal-primary);
+  flex-shrink: 0;
+}
+
+/* Filter tabs */
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: var(--card-bg);
+  border: 1px solid #eeeeee;
+  border-radius: var(--radius-sm);
+  padding: 6px;
+}
+
+.filter-tab {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 18px;
+  border-radius: 3px;
+  color: var(--white-70);
+  transition: all var(--transition-fast);
+}
+.filter-tab:hover { color: var(--teal-primary); }
+.filter-tab.active {
+  background-color: var(--teal-primary);
+  color: var(--white);
+}
+
+/* Contact form card */
+.contact-form-card {
+  background-color: var(--card-bg);
+  border: 1px solid #eeeeee;
+  border-radius: var(--radius-sm);
+  padding: 35px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+/* About two-col layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.about-img-wrap {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.about-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* About text */
+.about-lead {
+  font-size: 15px;
+  color: var(--white-70);
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* Flex class for contact channels section */
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+/* Social links in contact */
+.social-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Stat suffix (e.g. /5) */
+.stat-suffix {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--white-50);
+}
+
+/* Page transition */
+.page-transition-wrapper {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hide/Show helpers */
+.hide-mobile { display: block; }
+.hide-desktop { display: none; }
+
+/* Mobile Adaptations */
+@media (max-width: 991px) {
+  .navbar-top-inner { flex-direction: column; gap: 15px; }
+  .navbar-bottom { display: none; }
+  .hamburger { display: block; }
+  .booking-widget { grid-template-columns: 1fr 1fr; }
+  .service-card { grid-template-columns: 1fr; direction: ltr !important; }
+  .service-card.reverse { direction: ltr !important; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: 30px; }
+  .page-title { font-size: 28px; }
+  .hide-mobile { display: none; }
+  .hide-desktop { display: block; }
+}
+
+@media (max-width: 600px) {
+  .booking-widget { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .hero { padding: 60px 0 100px 0; }
+}
