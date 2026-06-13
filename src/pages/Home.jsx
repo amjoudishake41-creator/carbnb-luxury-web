@@ -299,6 +299,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* MAP SECTION */}
+      <section style={{ width: '100%', height: '400px', backgroundColor: '#e5e5e5' }}>
+        <iframe 
+          title="Agence Marouazi Rent Cars - Safi"
+          src="https://maps.google.com/maps?q=Marouazi+Rent+Cars+Safi&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          width="100%" 
+          height="100%" 
+          style={{ border: 0 }} 
+          allowFullScreen="" 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
     </div>
   );
 }

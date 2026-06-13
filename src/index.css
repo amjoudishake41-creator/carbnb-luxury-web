@@ -860,6 +860,11 @@ ul, ol { list-style: none; }
   color: var(--teal-primary);
 }
 
+@media (max-width: 600px) {
+  .step-label { display: none; }
+  .step-item { justify-content: center; padding: 12px 10px; }
+}
+
 /* ============================================
    FOOTER (www.nahlacar.ma style)
    ============================================ */
@@ -1328,7 +1333,8 @@ ul, ol { list-style: none; }
 
 /* Mobile Adaptations */
 @media (max-width: 991px) {
-  .navbar-top-inner { flex-direction: column; gap: 15px; }
+  .navbar-top-inner { flex-direction: row; justify-content: space-between; gap: 0; }
+  .navbar-call-btn { display: none; }
   .navbar-bottom { display: none; }
   .hamburger { display: block; }
   .booking-widget { grid-template-columns: 1fr 1fr; }
@@ -1340,6 +1346,22 @@ ul, ol { list-style: none; }
   .page-title { font-size: 28px; }
   .hide-mobile { display: none; }
   .hide-desktop { display: block; }
+}
+
+@media (min-width: 992px) {
+  .booking-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 991px) {
+  .booking-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
 }
 
 @media (max-width: 600px) {

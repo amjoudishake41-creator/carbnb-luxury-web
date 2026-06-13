@@ -78,10 +78,10 @@ Notes: ${booking.customer.notes || 'Aucune'}`;
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '40px' }} className="lg:grid-cols-3">
+        <div className="booking-layout">
           
           {/* Main Wizard Area */}
-          <div style={{ gridColumn: 'span 2' }}>
+          <div className="booking-main">
             
             {/* STEP 1: SELECT VEHICLE */}
             {booking.step === 1 && (
